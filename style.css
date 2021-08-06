@@ -1,7 +1,7 @@
 .content {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
@@ -44,4 +44,19 @@
     z-index: 10001;
     font-size: 7rem;
     font-weight: bold;
+}
+
+@media (max-width: 720px) {
+    .display {
+        font-size: 2rem;
+    }
+
+    .percentage {
+        font-size: 3rem;
+        font-weight: bold;
+    }
+
+    .app {
+    max-height: 300px;
+    }
 }
