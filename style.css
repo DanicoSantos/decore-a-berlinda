@@ -1,0 +1,22 @@
+.app {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.berlinda {
+    max-height: 720px;
+    opacity: 20%;
+}
+
+.percentage {
+    position: absolute;
+    top: 50vh;
+    left: 47vw;
+    font-size: 7rem;
+    font-weight: bold;
+    z-index: 10001;
+}
