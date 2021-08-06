@@ -1,5 +1,19 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.display {
+    font-size: 4rem;
+    text-align: center;
+    margin: 5rem;
+}
+
+
 .app {
-    height: 100vh;
+    height: 720px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -8,15 +22,26 @@
 }
 
 .berlinda {
-    max-height: 720px;
+    position: absolute;
+    height: 100%;
     opacity: 20%;
+    width: 100%;
+}
+
+.berlinda::before {
+    content: "";
+    position: absolute;
+    top: -3rem;
+    left: -1rem;
+    background: url('img/berlinda.svg') no-repeat top center;
+    background-size: contain;
+    width: 100%;
+    height: 100%;
 }
 
 .percentage {
-    position: absolute;
-    top: 50vh;
-    left: 47vw;
+    position: relative;
+    z-index: 10001;
     font-size: 7rem;
     font-weight: bold;
-    z-index: 10001;
 }
