@@ -39,6 +39,7 @@
 .berlinda-off {
     width: 400px;
     height: 100%;
+    filter: grayscale(100%);
     position: absolute;
     z-index: 10001;
     overflow: hidden;
