@@ -6,6 +6,10 @@
     font-family: 'Ubuntu', sans-serif;
 }
 
+.canvas {
+    position: absolute;
+}
+
 .display {
     font-size: 3rem;
     text-align: center;
