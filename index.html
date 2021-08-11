@@ -38,7 +38,12 @@
         <div class="app" id="app">
             <div class="percentage" id="percentage">0%</div>
             <div class="berlinda" id="berlinda">
-
+                <figure class="berlinda-off" id="berlinda-off">
+                    <img src="img/berlinda.svg" alt="">
+                </figure>
+                <figure class="berlinda-on">
+                    <img src="img/berlinda.svg" alt="">
+                </figure>
             </div>
         </div>
     </main>
@@ -46,7 +51,10 @@
     <script src="index.js"></script>
     <script src="confetti/index.min.js"></script>
     <script>
-        var confettiSettings = { target: 'canvas' };
+
+        const confettiSettings = {
+            target: 'canvas',
+         };
         var confetti = new ConfettiGenerator(confettiSettings);
         confetti.render();
     </script>

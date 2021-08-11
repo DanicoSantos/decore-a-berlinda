@@ -27,34 +27,41 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
-.berlinda {
-    background: url('img/berlinda.svg') no-repeat top center;
-    background-size: contain;
-    width: 100%;
+.berlinda-on {
+    width: 400px;
     height: 100%;
     position: relative;
+}
+
+.berlinda-off {
+    width: 400px;
+    height: 100%;
+    filter: grayscale(100%);
+    position: absolute;
+    z-index: 10001;
+    overflow: hidden;
+    transition: 1s ease;
 }
 
 .percentage {
     font-size: 3rem;
     font-weight: bold;
-    color: rgb(51, 199, 100)
-
+    color: rgb(51, 199, 100);
+    transition: 2s ease;
 }
 
 @media (max-width: 720px) {
     .display {
         font-size: 2rem;
     }
-
     .percentage {
         font-size: 3rem;
         font-weight: bold;
     }
-
     .app {
-    max-height: 300px;
+        max-height: 300px;
     }
 }

@@ -4,15 +4,18 @@ $(() => {
     const app = document.querySelector("#app");
 
     // Default opacity
-    const DEFAULT_OPACITY = '20%'
+    const DEFAULT_PERCENTAGE = '20%'
 
     // Changes opacity
-    const changeBerlindaOpacity = opacity => {
+    const changeBerlindaStatus = percentage => {
+
+        const normalizedPercentage = "100" - percentage.replace("%", "")
+
         // Set berlinda opacity
-        app.querySelector("#berlinda").style.opacity = opacity;
+        app.querySelector("#berlinda-off").style.height = normalizedPercentage + "%";
 
         // Change percentage inner text
-        app.querySelector("#percentage").innerText = opacity;
+        app.querySelector("#percentage").innerText = percentage;
     }
 
     /**
@@ -36,9 +39,9 @@ $(() => {
 
 
         if (raisedPercentToNumber > '20%') {
-            changeBerlindaOpacity(fundingInfo['raised_percent'])
+            changeBerlindaStatus(fundingInfo['raised_percent'])
         } else {
-            changeBerlindaOpacity(DEFAULT_OPACITY)
+            changeBerlindaStatus(DEFAULT_PERCENTAGE)
         }
     });
 
