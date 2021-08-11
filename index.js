@@ -1,19 +1,48 @@
-const FUNDING_PERCENTAGE = 0.4;
-let opacity = '20%';
+$(() => {
 
-if (FUNDING_PERCENTAGE > 0.2) {
-    opacity = `${FUNDING_PERCENTAGE*100}%`;
-}
+    const DEFAULT_OPACITY = '20%'
 
-const app = document.querySelector("#app");
+    /**
+     * Wordpress connection
+     */
+
+    const wpApiSettings = {
+        root: 'https://teste.octopass.com.br/wp-json',
+    }
+
+    const app = document.querySelector("#app");
 
 
-const changeBerlindaOpacity = () =>{
-    // Set berlinda opacity
-    app.querySelector("#berlinda").style.opacity = opacity;
+    const changeBerlindaOpacity = opacity => {
+        // Set berlinda opacity
+        app.querySelector("#berlinda").style.opacity = opacity;
 
-    // Change percentage inner text
-    app.querySelector("#percentage").innerText = opacity;
-}
+        // Change percentage inner text
+        app.querySelector("#percentage").innerText = opacity;
+    }
 
-changeBerlindaOpacity();
+    // AJAX request
+
+    $.ajax({
+        url: wpApiSettings.root + '/wp/v2/product/265488',
+        method: 'GET',
+    }).done(function (response) {
+        const fundingInfo = response['wpcf_product']
+        let raisedPercentToNumber = fundingInfo['raised_percent']
+
+        console.log(raisedPercentToNumber)
+
+        if (raisedPercentToNumber > '20%') {
+            changeBerlindaOpacity(fundingInfo['raised_percent'])
+        } else {
+            changeBerlindaOpacity(DEFAULT_OPACITY)
+        }
+        
+
+
+
+
+    });
+
+
+})

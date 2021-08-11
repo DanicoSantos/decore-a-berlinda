@@ -3,47 +3,39 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .display {
-    font-size: 4rem;
+    font-size: 3rem;
     text-align: center;
-    margin: 5rem;
+    margin: 2rem;
 }
 
 
 .app {
-    height: 500px;
+    height: 400px;
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: relative;
 }
 
 .berlinda {
-    position: absolute;
-    height: 100%;
-    opacity: 20%;
-    width: 100%;
-}
-
-.berlinda::before {
-    content: "";
-    position: absolute;
-    top: -3rem;
-    left: -1rem;
     background: url('img/berlinda.svg') no-repeat top center;
     background-size: contain;
     width: 100%;
     height: 100%;
+    opacity: 20%;
+
 }
 
 .percentage {
-    position: relative;
-    z-index: 10001;
-    font-size: 7rem;
+    font-size: 3rem;
     font-weight: bold;
+    color: rgb(51, 199, 100)
+
 }
 
 @media (max-width: 720px) {
