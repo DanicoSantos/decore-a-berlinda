@@ -33,17 +33,26 @@ $(() => {
     $.ajax({
         url: wpApiSettings.root + '/wp/v2/product/' + wpApiSettings.productID,
         method: 'GET',
-    }).done(function (response) {
-        const fundingInfo = response['wpcf_product']
-        let raisedPercentToNumber = fundingInfo['raised_percent']
+    })
+        .done(function (response, error) {
+            console.log(error)
+            const fundingInfo = response['wpcf_product']
+            let raisedPercentToNumber = fundingInfo['raised_percent']
 
 
-        if (raisedPercentToNumber > '20%') {
-            changeBerlindaStatus(fundingInfo['raised_percent'])
-        } else {
-            changeBerlindaStatus(DEFAULT_PERCENTAGE)
-        }
-    });
+            if (raisedPercentToNumber > '20%') {
+                changeBerlindaStatus(fundingInfo['raised_percent'])
+            } else {
+                changeBerlindaStatus(DEFAULT_PERCENTAGE)
+            }
+        })
+        .fail(error => {
+            if (error) {
+                $("#canvas").hide();
+                $("#content").hide();
+                $("#alert").addClass("show")
+            }
+        });
 
 
 })
