@@ -1,3 +1,6 @@
+const CONSUMER_KEY = 'ck_90403d34d46cf0bfa50c8a2c3242f232b0b18e40'
+const CONSUMER_SECRET = 'cs_34af42586560f5a434c6b4b61d6339f67ebf4d52'
+
 $(() => {
 
     // App container
@@ -52,6 +55,14 @@ $(() => {
                 $("#alert").addClass("show")
             }
         });
+
+        $.ajax({
+            url: wpApiSettings.root + '/wc/v3/orders/',
+            method: 'GET',
+            headers: {
+                "Authorization": "Basic" + btoa(CONSUMER_KEY + ":" + CONSUMER_SECRET)
+            }
+        }).done(response => console.log(response))
 
 
 })

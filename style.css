@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     font-family: 'Ubuntu', sans-serif;
+    background: transparent;
 }
 
 .canvas {
@@ -47,7 +48,6 @@
     z-index: 10002;
     margin: 0;
     bottom: -0.9%;
-    left: 2%;
 }
 
 .berlinda-on > img {
