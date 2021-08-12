@@ -12,7 +12,7 @@ $(() => {
         const normalizedPercentage = "100" - percentage.replace("%", "")
 
         // Set berlinda opacity
-        app.querySelector("#berlinda-off").style.height = normalizedPercentage + "%";
+        app.querySelector("#berlinda-on").style.height = percentage;
 
         // Change percentage inner text
         app.querySelector("#percentage").innerText = percentage;
@@ -34,8 +34,7 @@ $(() => {
         url: wpApiSettings.root + '/wp/v2/product/' + wpApiSettings.productID,
         method: 'GET',
     })
-        .done(function (response, error) {
-            console.log(error)
+        .done(function (response) {
             const fundingInfo = response['wpcf_product']
             let raisedPercentToNumber = fundingInfo['raised_percent']
 
