@@ -46,13 +46,5 @@ $(() => {
             }
         });
 
-    $.ajax({
-        url: wpApiSettings.root + '/wc/v3/orders/',
-        method: 'GET',
-        headers: {
-            "Authorization": "Basic" + btoa(CONSUMER_KEY + ":" + CONSUMER_SECRET)
-        }
-    }).done(response => console.log(response))
-
     console.log(localStorage.getItem('octoDonersCount'));
 })
