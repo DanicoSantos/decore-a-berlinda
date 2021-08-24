@@ -5,13 +5,15 @@ $(() => {
 
 
     // Changes opacity
-    const changeBerlindaStatus = percentage => {
+    const changeBerlindaStatus = info => {
 
         // Set berlinda opacity
-        app.querySelector("#berlinda-on").style.height = percentage;
+        app.querySelector("#berlinda-on").style.height = info['raised_percent'];
+
+        const raisedFlowers = parseFloat(info['total_raised']) / 10;
 
         // Change percentage inner text
-        app.querySelector("#percentage").innerText = percentage;
+        app.querySelector("#percentage").innerText = raisedFlowers + " Flores";
     }
 
     /**
@@ -33,9 +35,11 @@ $(() => {
         .done(function (response) {
             const fundingInfo = response['wpcf_product']
 
-            if (fundingInfo['raised_percent']) {
-                changeBerlindaStatus(fundingInfo['raised_percent'])
+            if (fundingInfo) {
+                changeBerlindaStatus(fundingInfo)
             }
+
+            console.log(response);
 
         })
         .fail(error => {
@@ -46,5 +50,4 @@ $(() => {
             }
         });
 
-    console.log(localStorage.getItem('octoDonersCount'));
 })
