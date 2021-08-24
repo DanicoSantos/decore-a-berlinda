@@ -67,6 +67,7 @@ body {
     z-index: 10001;
     overflow: hidden;
     transition: 1s ease;
+    filter: grayscale(100%);
 }
 
 .percentage {

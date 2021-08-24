@@ -3,13 +3,9 @@ $(() => {
     // App container
     const app = document.querySelector("#app");
 
-    // Default opacity
-    const DEFAULT_PERCENTAGE = '20%'
 
     // Changes opacity
     const changeBerlindaStatus = percentage => {
-
-        const normalizedPercentage = "100" - percentage.replace("%", "")
 
         // Set berlinda opacity
         app.querySelector("#berlinda-on").style.height = percentage;
@@ -36,14 +32,11 @@ $(() => {
     })
         .done(function (response) {
             const fundingInfo = response['wpcf_product']
-            let raisedPercentToNumber = fundingInfo['raised_percent']
 
-
-            if (raisedPercentToNumber > '20%') {
+            if (fundingInfo['raised_percent']) {
                 changeBerlindaStatus(fundingInfo['raised_percent'])
-            } else {
-                changeBerlindaStatus(DEFAULT_PERCENTAGE)
             }
+
         })
         .fail(error => {
             if (error) {
@@ -53,13 +46,13 @@ $(() => {
             }
         });
 
-        $.ajax({
-            url: wpApiSettings.root + '/wc/v3/orders/',
-            method: 'GET',
-            headers: {
-                "Authorization": "Basic" + btoa(CONSUMER_KEY + ":" + CONSUMER_SECRET)
-            }
-        }).done(response => console.log(response))
+    $.ajax({
+        url: wpApiSettings.root + '/wc/v3/orders/',
+        method: 'GET',
+        headers: {
+            "Authorization": "Basic" + btoa(CONSUMER_KEY + ":" + CONSUMER_SECRET)
+        }
+    }).done(response => console.log(response))
 
-
+    console.log(localStorage.getItem('octoDonersCount'));
 })
