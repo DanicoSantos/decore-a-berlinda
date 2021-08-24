@@ -32,12 +32,6 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="alert alert-danger alert-dismissible fade text-center" id="alert" role="alert">
-            <strong>Um erro ocorreu!</strong> Por favor, tente novamente em alguns minutos.
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    </div>
     <canvas class="canvas" id="canvas"></canvas>
     <main class="content" id="content">
         <h1 class="display display--strong">Já arrecadamos até aqui</h1>
@@ -54,17 +48,13 @@
         </div>
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
-        crossorigin="anonymous"></script>
     <script src="index.js"></script>
-
     <script src="confetti/index.min.js"></script>
     <script>
 
         const confettiSettings = {
             target: 'canvas',
-        };
+         };
         var confetti = new ConfettiGenerator(confettiSettings);
         confetti.render();
     </script>
