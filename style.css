@@ -28,7 +28,7 @@ body {
 }
 
 .app {
-    height: 400px;
+    height: 500px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -39,19 +39,30 @@ body {
 
 .berlinda {
     position: relative;
-    height: 400px;
+    height: 500px;
     width: 400px;
+}
+
+.flores {
+    display: none;
+}
+
+/*
+* Animations
+*/
+@keyframes berlindaAnimation {
+    from {filter: grayscale(100%);}
+    to {filter: grayscale(0%) ;}
 }
 
 .berlinda-on {
     width: 400px;
-    height: 100%;
-    position: absolute;
+    position: relative;
     overflow: hidden;
     transition: 1s ease;
     z-index: 10002;
     margin: 0;
-    bottom: -0.9%;
+    display: none;
 }
 
 .berlinda-on > img {
@@ -68,6 +79,7 @@ body {
     overflow: hidden;
     transition: 1s ease;
     filter: grayscale(100%);
+    animation: berlindaAnimation 3s linear 1s forwards;
 }
 
 .percentage {
@@ -76,6 +88,8 @@ body {
     color: rgb(51, 199, 100);
     transition: 2s ease;
 }
+
+
 
 @media (max-width: 720px) {
     .display {

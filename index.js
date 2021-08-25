@@ -7,13 +7,19 @@ $(() => {
     // Changes opacity
     const changeBerlindaStatus = info => {
 
-        // Set berlinda opacity
-        app.querySelector("#berlinda-on").style.height = info['raised_percent'];
-
         const raisedFlowers = parseFloat(info['total_raised']) / 10;
 
         // Change percentage inner text
         app.querySelector("#percentage").innerText = raisedFlowers + " Flores";
+    }
+
+    // Fill berlinda with flowers
+    const fillWithFlowers = flowers => {
+        let flowerCollection = $(flowers);
+
+        for (const flower of flowerCollection) {
+            $(flower).show();
+        }
     }
 
     /**
@@ -39,7 +45,7 @@ $(() => {
                 changeBerlindaStatus(fundingInfo)
             }
 
-            console.log(response);
+            fillWithFlowers('.flores')
 
         })
         .fail(error => {
@@ -50,4 +56,5 @@ $(() => {
             }
         });
 
+        
 })
