@@ -43,12 +43,7 @@ body {
     width: 400px;
 }
 
-/* .st813, .st815, .st819 {
-    display: none;
-}
- */
-
-.flores {
+[id*='octoflores'] {
     display: none;
     animation: fadeEffect 4s;
     transition: 3s;

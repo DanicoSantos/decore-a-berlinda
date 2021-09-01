@@ -28,11 +28,13 @@ $(() => {
     }
 
     // Fill berlinda with flowers
-    const fillWithFlowers = flowers => {
+    const fillWithFlowers = (flowers, index) => {
         let flowerCollection = $(flowers);
 
-        for (const flower of flowerCollection) {
-            flower.classList.add('flores--active')
+        console.log(flowerCollection.length)
+
+        for (let i = 0; i <= index; i++) {
+            flowerCollection[i].classList.add('flores--active')
         }
     }
 
@@ -59,7 +61,7 @@ $(() => {
                 changeBerlindaStatus(fundingInfo)
             }
 
-            fillWithFlowers('.flores')
+            fillWithFlowers('[id*=octoflores]', 3)
 
         })
         .fail(error => {
@@ -76,27 +78,47 @@ $(() => {
     const certificateApiSettings = {
         username: 'dados.dan.santos@gmail.com',
         password: 'Sp4p4N@d',
-        baseUrl: 'https://gerarcertificado.com.br/API'
+        baseUrl: 'https://gerarcertificado.com.br/API',
+        auth: {
+            username: this.username,
+            password: this.password,
+        }
     }
+
+    const authSettings = {
+        username: 'dados.dan.santos@gmail.com',
+        password: 'Sp4p4N@d',
+    }
+
 
     const axiosCustom = axios.create({
         baseURL: certificateApiSettings.baseUrl,
         headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Content-Type' : 'application/json',
+            'Accept': '*/*',
+            'Content-Type': 'application/json'
         },
-        auth: {
-            username: certificateApiSettings.username,
-            password: certificateApiSettings.password
-        },
-        withCredentials: true,
+
     })
 
+    const data = {
+            idModeloCertificado: 1019,
+            nome: 'Fulano de Tal',
+            titulo: 'Decore a Berlinda',
+            data: '20 de Agosto',
+            cargaHoraria: '10 horas'    
+    }
+
     axiosCustom({
-        method: 'get',
-        url: '/credits/V1',
+        url: '/create/test/V1/', 
+        params: data,
+        auth: authSettings,        
+
     })
-        .then(response => console.log(response.data))
+        .then(response => {
+            if (response.data) {
+                console.log(response.data['url'])
+            }
+        })
         .catch(error => console.log(error))
 
 })
