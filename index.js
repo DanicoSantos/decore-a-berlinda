@@ -3,8 +3,22 @@ $(() => {
     // App container
     const app = document.querySelector("#app");
 
+    const bottomFlowers = app.querySelectorAll("[id*='floresbaixo']")
 
-    // Changes opacity
+    // Add flowers to the bottom group 
+    const addBottomFlowers = () => {
+        let copiedFlowers = bottomFlowers[0].cloneNode(true)
+        let nodeId = bottomFlowers[0].getAttribute("id") + bottomFlowers.length
+        copiedFlowers
+        copiedFlowers.setAttribute("id", nodeId)
+        bottomFlowers[bottomFlowers.length - 1].insertAdjacentElement("afterend", copiedFlowers)
+        console.log(bottomFlowers)
+    }
+
+
+
+
+    // Changes greyscale percentage
     const changeBerlindaStatus = info => {
 
         const raisedFlowers = parseFloat(info['total_raised']) / 10;
@@ -18,7 +32,7 @@ $(() => {
         let flowerCollection = $(flowers);
 
         for (const flower of flowerCollection) {
-            $(flower).show();
+            flower.classList.add('flores--active')
         }
     }
 
@@ -56,5 +70,33 @@ $(() => {
             }
         });
 
-        
+    /*
+    * Certificates API settings
+    */
+    const certificateApiSettings = {
+        username: 'dados.dan.santos@gmail.com',
+        password: 'Sp4p4N@d',
+        baseUrl: 'https://gerarcertificado.com.br/API'
+    }
+
+    const axiosCustom = axios.create({
+        baseURL: certificateApiSettings.baseUrl,
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type' : 'application/json',
+        },
+        auth: {
+            username: certificateApiSettings.username,
+            password: certificateApiSettings.password
+        },
+        withCredentials: true,
+    })
+
+    axiosCustom({
+        method: 'get',
+        url: '/credits/V1',
+    })
+        .then(response => console.log(response.data))
+        .catch(error => console.log(error))
+
 })
