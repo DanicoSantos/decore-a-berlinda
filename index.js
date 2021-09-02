@@ -31,8 +31,6 @@ $(() => {
     const fillWithFlowers = (flowers, index) => {
         let flowerCollection = $(flowers);
 
-        console.log(flowerCollection.length)
-
         for (let i = 0; i <= index; i++) {
             flowerCollection[i].classList.add('flores--active')
         }
@@ -61,7 +59,21 @@ $(() => {
                 changeBerlindaStatus(fundingInfo)
             }
 
-            fillWithFlowers('[id*=octoflores]', 3)
+            const flowersRaised = parseFloat(fundingInfo['total_raised']) / 10;
+
+            if (flowersRaised <= 10000) {
+                index = 3;
+            } else if (flowersRaised > 10000 <= 20000) {
+                index = 6;
+            } else if (flowersRaised > 20000 <=30000) {
+                index = 9;
+            } else if (flowersRaised > 30000 <= 40000) {
+                index = 12;
+            } else if (flowersRaised > 40000) {
+                index = 15;
+            }
+
+            fillWithFlowers('[id*=octoflores]', index)
 
         })
         .fail(error => {
@@ -116,7 +128,6 @@ $(() => {
     })
         .then(response => {
             if (response.data) {
-                console.log(response.data['url'])
             }
         })
         .catch(error => console.log(error))
