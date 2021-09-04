@@ -1,0 +1,34 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+/* Certificate */
+.certificate {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.certificate__image {
+    display: none;
+}
+
+/* .certificate {
+    display: none;
+} */
+.frame {
+    display: none;
+}
+
+/* Button */
+.button {
+    margin: 0 auto;
+    width: 10%;
+}
+
