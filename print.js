@@ -1,7 +1,7 @@
 document.body.onload = () => {
   const contributer = localStorage.getItem("octoContributer")
     ? JSON.parse(localStorage.getItem("octoContributer"))
-    : { name: "Fulano de Tal da Silva" };
+    : { name: "Fulano de Tal" };
   /*
    *  Drawing canvas to download certificate
    */

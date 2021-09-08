@@ -42,8 +42,8 @@ $(() => {
 
     // Wordpress config
     const wpApiSettings = {
-        root: 'https://teste.octopass.com.br/wp-json',
-        productID: '265488'
+        root: 'https://berlinda.lojinhadocirio.com.br/wp-json',
+        productID: '271577'
     }
 
     // AJAX request
@@ -84,52 +84,6 @@ $(() => {
             }
         });
 
-    /*
-    * Certificates API settings
-    */
-    const certificateApiSettings = {
-        username: 'dados.dan.santos@gmail.com',
-        password: 'Sp4p4N@d',
-        baseUrl: 'https://gerarcertificado.com.br/API',
-        auth: {
-            username: this.username,
-            password: this.password,
-        }
-    }
-
-    const authSettings = {
-        username: 'dados.dan.santos@gmail.com',
-        password: 'Sp4p4N@d',
-    }
-
-
-    const axiosCustom = axios.create({
-        baseURL: certificateApiSettings.baseUrl,
-        headers: {
-            'Accept': '*/*',
-            'Content-Type': 'application/json'
-        },
-
-    })
-
-    const data = {
-            idModeloCertificado: 1019,
-            nome: 'Fulano de Tal',
-            titulo: 'Decore a Berlinda',
-            data: '20 de Agosto',
-            cargaHoraria: '10 horas'    
-    }
-
-    axiosCustom({
-        url: '/create/test/V1/', 
-        params: data,
-        auth: authSettings,        
-
-    })
-        .then(response => {
-            if (response.data) {
-            }
-        })
-        .catch(error => console.log(error))
+   
 
 })
