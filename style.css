@@ -69,7 +69,7 @@ body {
 }
 
 .berlinda-on {
-    width: 350px;
+    width: 300px;
     position: relative;
     overflow: hidden;
     transition: 1s ease;
@@ -85,7 +85,7 @@ body {
 }
 
 .berlinda-off {
-    width: 350px;
+    width: 300px;
     height: 100%;
     position: absolute;
     z-index: 10001;
