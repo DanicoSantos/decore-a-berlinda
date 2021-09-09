@@ -21,10 +21,10 @@ $(() => {
     // Changes greyscale percentage
     const changeBerlindaStatus = info => {
 
-        const raisedFlowers = parseFloat(info['total_raised']) / 10;
+        const raisedFlowers = parseFloat(info['total_raised']) / 7.5;
 
         // Change percentage inner text
-        app.querySelector("#percentage").innerText = raisedFlowers + " Flores";
+        app.querySelector("#percentage").innerText = parseInt(raisedFlowers) + " Flores";
     }
 
     // Fill berlinda with flowers
@@ -59,7 +59,7 @@ $(() => {
                 changeBerlindaStatus(fundingInfo)
             }
 
-            const flowersRaised = parseFloat(fundingInfo['total_raised']) / 10;
+            const flowersRaised = parseFloat(fundingInfo['total_raised']) / 7.5;
 
             if (flowersRaised <= 10000) {
                 index = 3;
@@ -83,6 +83,12 @@ $(() => {
                 $("#alert").addClass("show")
             }
         });
+
+        const confettiSettings = {
+            target: 'canvas',
+        };
+        var confetti = new ConfettiGenerator(confettiSettings);
+        confetti.render();
 
    
 
