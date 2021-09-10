@@ -43,7 +43,7 @@ $(() => {
     // Wordpress config
     const wpApiSettings = {
         root: 'https://berlinda.lojinhadocirio.com.br/wp-json',
-        productID: '271577'
+        productID: '265488'
     }
 
     // AJAX request
@@ -83,6 +83,8 @@ $(() => {
                 $("#alert").addClass("show")
             }
         });
+
+        // Confetti instance
 
         const confettiSettings = {
             target: 'canvas',
