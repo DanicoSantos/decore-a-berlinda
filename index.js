@@ -61,7 +61,7 @@ $(() => {
 
             const flowersRaised = parseFloat(fundingInfo['total_raised']) / 7.5;
 
-            if (flowersRaised <= 10000) {
+            if (0 < flowersRaised <= 10000) {
                 index = 3;
             } else if (flowersRaised > 10000 <= 20000) {
                 index = 6;
@@ -71,6 +71,8 @@ $(() => {
                 index = 12;
             } else if (flowersRaised > 40000) {
                 index = 15;
+            } else {
+                index = -1; 
             }
 
             fillWithFlowers('[id*=octoflores]', index)
