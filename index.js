@@ -21,7 +21,7 @@ $(() => {
     // Changes greyscale percentage
     const changeBerlindaStatus = info => {
 
-        const raisedFlowers = parseFloat(info['total_raised']) / 7.5;
+        const raisedFlowers = parseFloat(info['total_raised']) / 10;
 
         // Change percentage inner text
         app.querySelector("#percentage").innerText = parseInt(raisedFlowers) + " Flores";
@@ -59,7 +59,7 @@ $(() => {
                 changeBerlindaStatus(fundingInfo)
             }
 
-            const flowersRaised = parseFloat(fundingInfo['total_raised']) / 7.5;
+            const flowersRaised = parseFloat(fundingInfo['total_raised']) / 10;
 
             if (0 < flowersRaised <= 10000) {
                 index = 3;
